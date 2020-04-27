@@ -1,0 +1,29 @@
+<p>Thông tin cá nhân</p>
+<div>
+  <div>
+    Họ: {{customerList.ho}}
+  </div>
+  <div>
+    Tên: {{customerList.ten}}
+  </div>
+  <div>
+    Chứng minh thư: {{customerList.cmnd}}
+  </div>
+  <div>
+    Số điện thoại: {{customerList.sdt}}
+  </div>
+  <div>
+    Địa chỉ: {{customerList.diaChi}}
+  </div>
+</div>
+<br>
+<p>Nhà đang thuê</p>
+<div *ngFor="let d of dealsListTrong">
+  {{d.house.tenNha}}<button routerLink="/delete-deals/{{d.idGiaoDich}}">Hủy</button><button routerLink="/checkout-deals/{{d.idGiaoDich}}">Trả phòng</button>
+</div>
+<p>Nhà đã thuê</p>
+<div *ngFor="let d of dealsListTraPhong">
+  {{d.house.tenNha}}
+</div>
+
+
