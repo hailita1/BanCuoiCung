@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ComponentsService} from '../../components.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -12,7 +12,7 @@ import {ICustomer} from '../../../interface/customer';
   styleUrls: ['./deals.component.scss']
 })
 export class DealsComponent implements OnInit {
-
+  oneDay = 86400000;
   message = '';
   isShow = false;
   isSuccess = true;
@@ -22,20 +22,21 @@ export class DealsComponent implements OnInit {
   idCustomer: any;
   categoryHouseList: any[];
   categoryRoomList: any[];
+  thanhTien: number;
   deals: IDeal = {
     ngayDen: '',
-  ngayDi: '',
-  danhGia: 0,
-  trangThai: '',
-  thanhTien: 0,
+    ngayDi: '',
+    danhGia: 0,
+    trangThai: '',
+    thanhTien: 0,
     phanHoi: '',
-  house: {
+    house: {
       idNha: 0,
-  },
-  customer: {
+    },
+    customer: {
       idCustomer: 0,
-  }
-};
+    }
+  };
   formGroup = new FormGroup({
     categoryHouseId: new FormControl(),
     categoryRoomId: new FormControl(),
@@ -54,23 +55,24 @@ export class DealsComponent implements OnInit {
     const idSearch = localStorage.getItem('idHouse');
     this.id = Number(idSearch);
     console.log(this.id);
-    this.componentsService.findById(idSearch).subscribe( result => {
+    this.componentsService.findById(idSearch).subscribe(result => {
       this.listHouse = result;
     });
-    this.componentsService.listCategoryHouse().subscribe( result => {
+    this.componentsService.listCategoryHouse().subscribe(result => {
       this.categoryHouseList = result;
     });
-    this.componentsService.listCategoryRoom().subscribe( result1 => {
+    this.componentsService.listCategoryRoom().subscribe(result1 => {
       this.categoryRoomList = result1;
     });
   }
+
   saveDeal() {
     this.idCustomer = localStorage.getItem('idCustomer');
     this.deals.ngayDen = this.formGroup.get('ngayDen').value;
     this.deals.ngayDi = this.formGroup.get('ngayDi').value;
     this.deals.danhGia = this.formGroup.get('danhGia').value;
     this.deals.trangThai = 'Trống';
-    this.deals.thanhTien = Number(this.formGroup.get('thanhTien').value);
+    this.deals.thanhTien = this.thanhTien;
     this.deals.phanHoi = this.formGroup.get('phanHoi').value;
     this.deals.house.idNha = this.id;
     this.deals.customer.idCustomer = Number(this.idCustomer);
@@ -79,7 +81,7 @@ export class DealsComponent implements OnInit {
       this.isShow = true;
       this.isSuccess = true;
       this.message = 'Thuê thành công!';
-      this.router.navigate(['/customer/', Number(this.idCustomer)]).then( (e) => {
+      this.router.navigate(['/customer/', Number(this.idCustomer)]).then((e) => {
         if (e) {
           console.log('Navigation is successful!');
         } else {
@@ -95,9 +97,25 @@ export class DealsComponent implements OnInit {
     });
     this.updateHouse();
   }
+
   updateHouse() {
     const id = this.listHouse.idNha;
     const trangThai = 'Đã thuê';
     this.componentsService.editHouseByTrangThai(id, trangThai).subscribe();
+  }
+
+  payDeal() {
+    const ngayDen = this.formGroup.get('ngayDen').value;
+    console.log(ngayDen);
+    const ngayDi = this.formGroup.get('ngayDi').value;
+    console.log(ngayDi);
+    const ngayDen1 = new Date(ngayDen);
+    const ngayDi1 = new Date(ngayDi);
+    const ngayO = ngayDi1.getTime() - ngayDen1.getTime();
+    console.log(ngayO);
+    const giaTienTheoDem = this.listHouse.giaTienTheoDem;
+    const giaTienOTheoGiay = (giaTienTheoDem / this.oneDay);
+    this.thanhTien = ngayO * giaTienOTheoGiay;
+    console.log(this.thanhTien);
   }
 }

@@ -34,15 +34,13 @@ export class DeleteDealsComponent implements OnInit {
     console.log(dealTime.getTime());
     console.log(this.currentTime.getTime());
     console.log(orderTimeSecond - this.oneDay);
-    if (orderTimeSecond > this.oneDay || orderTimeSecond < 0) {
+    if (orderTimeSecond > this.oneDay) {
       this.componentsService.deleteDeal(deal.idGiaoDich).subscribe(() => {
         alert('Thành Công!');
         this.updateHouse();
-        location.reload();
       }, error => {
         console.log('Loi! ' + error.toString());
         alert('Thất bại!');
-        location.reload();
       });
     } else {
       alert('Bạn không thể xoá đơn này do còn ít hơn 1 ngày!');

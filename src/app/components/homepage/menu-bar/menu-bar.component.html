@@ -5,11 +5,13 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
       </div>
-      <input type="text" class="form-control mr-sm-3" placeholder="Tìm kiếm " aria-label="Username" aria-describedby="basic-addon1">
+      <input type="text" class="form-control mr-sm-3" placeholder="Tìm kiếm " aria-label="Username"
+             aria-describedby="basic-addon1">
     </div>
   </form>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -22,23 +24,29 @@
         <a class="nav-link sparkle u-hover--sparkle" routerLink="/">Trang chủ <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sparkle u-hover--sparkle" *ngIf="(checkLogin === 'true' || checkLogin == null) ? true : false" routerLink="/login-homepage">Đăng nhập</a>
+        <a class="nav-link sparkle u-hover--sparkle"
+           *ngIf="(checkLogin === 'true' || checkLogin == null) ? true : false" routerLink="/login-homepage">Đăng
+          nhập</a>
         <a class="nav-link" *ngIf="checkLogin === 'false' ? true : false" (click)="exit()" href="/">Đăng xuất</a>
       </li>
       <li class="nav-item">
         <a class="nav-link sparkle u-hover--sparkle" routerLink="/signup-homepage">Đăng ký</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" ><app-login></app-login></a>
+        <a class="nav-link">
+          <app-login></app-login>
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sparkle u-hover--sparkle" *ngIf="checkLogin === 'false' ? true : false" routerLink="/customer/{{idCustomer}}">{{customerName}}</a>
+        <a class="nav-link sparkle u-hover--sparkle" *ngIf="checkLogin === 'false' ? true : false"
+           routerLink="/customer/{{idCustomer}}">{{customerName}}</a>
       </li>
     </ul>
   </div>
 </nav>
 <form [formGroup]="formGroupCheck" (ngSubmit)="updateCheck()">
-  <input *ngIf="false" type="text" formControlName="check" name="password" placeholder="Password" value="{{listCheck.id}}" required>
+  <input *ngIf="false" type="text" formControlName="check" name="password" placeholder="Password"
+         value="{{listCheck.id}}" required>
 </form>
 <div class="container alo">
   <div class="container-bg img-bg">
@@ -71,7 +79,6 @@
   </div>
 
 
-
   <h2>Kết quả tìm kiếm</h2>
   <div class="container-body row">
     <div class="float-left col-12">
@@ -95,7 +102,7 @@
           <div>
             <span>* Trạng thái: {{h.trangThai}} </span>
           </div>
-          <button routerLink="views/{{h.idNha}}">Chi tiết</button>
+          <button routerLink="/views/{{h.idNha}}">Đặt thuê</button>
         </div>
       </div>
     </div>
@@ -134,13 +141,15 @@
           <h2>Chào mừng đến với <br> Website.</h2>
         </div>
         <p>Là nền tảng đặt phòng trực tuyến #1 Việt Nam. Đồng hành cùng chúng tôi, bạn có những chuyến
-          đi mang đầy trải nghiệm, việc đặt chỗ ở, biệt thự nghỉ dưỡng, khách sạn, nhà riêng, chung cư... trở nên nhanh chóng, thuận tiện và dễ dàng.</p>
+          đi mang đầy trải nghiệm, việc đặt chỗ ở, biệt thự nghỉ dưỡng, khách sạn, nhà riêng, chung cư... trở nên nhanh
+          chóng, thuận tiện và dễ dàng.</p>
       </div>
     </div>
     <div class="col-lg-6">
       <div class="intro-right">
         <p>Còn cung cấp các dịch vụ có liên quan đến hoạt động bất động sản,
-          cho phép các chủ nhà kinh doanh thông qua căn hộ của mình, đồng thời mang tới chất lượng căn hộ ngắn hạn tốt nhất cho những người thuê nhà</p>
+          cho phép các chủ nhà kinh doanh thông qua căn hộ của mình, đồng thời mang tới chất lượng căn hộ ngắn hạn tốt
+          nhất cho những người thuê nhà</p>
         <a href="#" class="primary-btn">Đặt phòng!</a>
       </div>
     </div>

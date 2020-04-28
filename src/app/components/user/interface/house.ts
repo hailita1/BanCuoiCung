@@ -1,4 +1,4 @@
-import {Picture} from '../picture';
+import {Picture} from '../../../interface/picture';
 
 export interface House {
   tenNha?: string;

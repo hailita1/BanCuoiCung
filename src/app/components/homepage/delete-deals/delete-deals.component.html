@@ -53,7 +53,9 @@
               <div>Ngày đặt thuê: {{dealsList.ngayDen}}</div>
               <div>Ngày trả phòng: {{dealsList.ngayDi}}</div>
               <div>Thành tiền: {{dealsList.thanhTien}}</div>
-              <button type="button" class="btn btn-danger ml-3" (click)="deleteDeal(dealsList)">Huỷ đơn</button>
+              <button type="button" class="btn btn-danger ml-3" routerLink="/customer/{{dealsList.customer.idCustomer}}"
+                      (click)="deleteDeal(dealsList)">Huỷ đơn
+              </button>
             </div>
           </div>
         </div>

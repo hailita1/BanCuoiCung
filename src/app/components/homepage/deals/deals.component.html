@@ -32,7 +32,8 @@
 
                 <div class="w3-content w3-display-container">
 
-                  <img [src]="image.tenAnh" class="mySlides w3-animate-left" style="width:100%" *ngFor="let image of listHouse.picture">
+                  <img [src]="image.tenAnh" class="mySlides w3-animate-left" style="width:100%"
+                       *ngFor="let image of listHouse.picture">
 
                   <div class="ha4" style="text-align:center">
                     <span class="dot" *ngFor="let image of listHouse.picture"></span>
@@ -44,18 +45,19 @@
                 </div>
                 <div class="form-group">
                   <label for="ngayDen">Ngày đặt thuê</label>
-                  <input id="ngayDen"  formControlName="ngayDen" type="date" class="form-control" value=""/>
+                  <input id="ngayDen" formControlName="ngayDen" type="date" class="form-control" value=""/>
                 </div>
                 <div class="form-group">
                   <label for="ngayDi">Ngày trả phòng</label>
-                  <input id="ngayDi"  formControlName="ngayDi" type="date" class="form-control" value=""/>
+                  <input id="ngayDi" formControlName="ngayDi" type="date" class="form-control" value=""/>
                 </div>
-                <div class="form-group">
-                  <label for="tien">Số tiền phải trả</label>
-                  <input id="tien"  formControlName="thanhTien" type="text" class="form-control" value=""/>
-                </div>
+<!--                <div class="form-group">-->
+                <!--                  <label for="tien">Số tiền phải trả</label>-->
+                <!--                  <input id="tien" formControlName="thanhTien" type="text" class="form-control" value="{{thanhTien}}" [(ngModel)]="thanhTien"/>-->
+                <!--                  <p>{{thanhTien}}</p>-->
+                <!--                </div>-->
                 <div>
-                  <button type="submit" >Đặt thuê</button>
+                  <button type="submit" (click)="payDeal()">Đặt thuê</button>
                 </div>
                 <div *ngIf="isShow"
                      class="alert {{ (isSuccess) ? 'alert-success' : 'alert-danger' }}"

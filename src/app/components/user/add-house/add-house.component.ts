@@ -17,7 +17,6 @@ declare const myTest: any;
 export class AddHouseComponent implements OnInit {
 
 
-
   myItems: File[] = [];
   categoryHouseList: any[];
   categoryRoomList: any[];
@@ -64,7 +63,7 @@ export class AddHouseComponent implements OnInit {
     //   idChuNha: new FormControl(),
     // }),
     picture: new FormArray([
-      new FormGroup ({
+      new FormGroup({
         tenAnh: new FormControl(),
       })
     ])
@@ -106,7 +105,7 @@ export class AddHouseComponent implements OnInit {
     this.house.trangThai = this.formGroup.get('trangThai').value;
     // this.house.host =  this.formGroup.get('host').value;
     this.house.categoryHouse = this.formGroup.get('categoryHouse').value;
-    this.house.categoryRoom =  this.formGroup.get('categoryRoom').value;
+    this.house.categoryRoom = this.formGroup.get('categoryRoom').value;
     this.house.picture = this.arrayPicture;
     if (this.isDone === true) {
       this.componentsService.addHouse(this.house).subscribe(result => {
@@ -170,7 +169,6 @@ export class AddHouseComponent implements OnInit {
   onClick() {
     myTest();
   }
-
 
 
 }
