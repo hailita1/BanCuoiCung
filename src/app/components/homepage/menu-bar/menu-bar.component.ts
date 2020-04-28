@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ComponentsService} from '../../components.service';
 import {Router} from '@angular/router';
@@ -20,15 +20,19 @@ export class MenuBarComponent implements OnInit {
   message = '';
   isShow = false;
   isSuccess = true;
-  formGroupCheck = new FormGroup( {
+  formGroupCheck = new FormGroup({
     check: new FormControl()
-  })
-  formGroup = new FormGroup({
-    search: new FormControl(),
-    input: new FormControl(),
-    output: new FormControl()
   });
-  constructor(private componentsService: ComponentsService,  private route: Router) { }
+  formGroup = new FormGroup({
+    diaChi: new FormControl(),
+    soTienNhoHon: new FormControl(),
+    soTienLonHon: new FormControl(),
+    soLuongPhongNgu: new FormControl(),
+    soLuongPhongTam: new FormControl(),
+  });
+
+  constructor(private componentsService: ComponentsService, private route: Router) {
+  }
 
   ngOnInit(): void {
     this.componentsService.getListCustomer().subscribe(result => {
@@ -39,48 +43,76 @@ export class MenuBarComponent implements OnInit {
     this.idCustomer = localStorage.getItem('idCustomer');
     this.customerName = localStorage.getItem('customerName');
     console.log(this.customerName);
-    this.componentsService.findByIdCheck(1).subscribe( result => {
+    this.componentsService.findByIdCheck(1).subscribe(result => {
       this.listCheck = result;
       this.formGroupCheck.controls.check.setValue(!this.listCheck.checkLogin);
     });
   }
+
   exit() {
     this.updateCheck();
   }
+
   updateCheck() {
     const id = 1;
     const check = this.formGroupCheck.get('check').value;
-    this.componentsService.updateCheck(id, check).subscribe( result => {});
+    this.componentsService.updateCheck(id, check).subscribe(result => {
+    });
     this.checkLogin = 'true';
     console.log(this.checkLogin);
     localStorage.removeItem('check');
     localStorage.removeItem('customerName');
   }
-  public searchByDiaChi() {
-    const diaChi = this.formGroup.get('search').value;
-    this.componentsService.searchByDiaChi(diaChi).subscribe( result => {
-      this.listHouse = result;
-    });
-  }
 
-  public searchBySlPhongNgu() {
-    const soLuong = this.formGroup.get('search').value;
-    this.componentsService.searchBySoLuongPhongNgu(soLuong).subscribe( result => {
-      this.listHouse = result;
-    });
-  }
-
-  public searchBySlPhongTam() {
-    const soLuong = this.formGroup.get('search').value;
-    this.componentsService.searchBySoLuongPhongTam(soLuong).subscribe( result => {
-      this.listHouse = result;
-    });
-  }
-  public searchBetween() {
-    const input = this.formGroup.get('input').value;
-    const output = this.formGroup.get('output').value;
-    this.componentsService.searchBetween(input, output).subscribe( result => {
-      this.listHouse = result;
-    });
+  public search() {
+    let diaChi = this.formGroup.get('diaChi').value;
+    let slpn = this.formGroup.get('soLuongPhongNgu').value;
+    let slpt = this.formGroup.get('soLuongPhongTam').value;
+    let dauTren = this.formGroup.get('soTienLonHon').value;
+    let dauDuoi = this.formGroup.get('soTienNhoHon').value;
+    // tslint:disable-next-line:triple-equals
+    if (slpn == ' ' && slpt == ' ' && dauTren == ' ' && dauDuoi == ' ') {
+      slpn = '0';
+      slpt = '0';
+      dauTren = '0';
+      dauDuoi = '0';
+      this.componentsService.search1(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+      // tslint:disable-next-line:triple-equals
+    } else if (diaChi == ' ' && slpt == ' ' && dauTren == ' ' && dauDuoi == ' ') {
+      diaChi = '0';
+      slpt = '0';
+      dauTren = '0';
+      dauDuoi = '0';
+      this.componentsService.search2(slpn, diaChi, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+      // tslint:disable-next-line:triple-equals
+    } else if (diaChi == ' ' && slpn == ' ' && dauTren == ' ' && dauDuoi == ' ') {
+      diaChi = '0';
+      slpn = '0';
+      dauTren = '0';
+      dauDuoi = '0';
+      this.componentsService.search3(slpt, diaChi, slpn, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+      // tslint:disable-next-line:triple-equals
+    } else if (diaChi == ' ' && slpn == ' ' && slpt == ' ') {
+      diaChi = '0';
+      slpn = '0';
+      slpt = '0';
+      this.componentsService.search4(dauTren, dauDuoi, diaChi, slpn, slpt).subscribe(result => {
+        this.listHouse = result;
+      });
+      // tslint:disable-next-line:triple-equals
+    } else if (slpn == ' ' && dauTren == ' ' && dauDuoi == ' ') {
+      slpn = '0';
+      dauDuoi = '0';
+      dauTren = '0';
+      this.componentsService.search5(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+    }
   }
 }

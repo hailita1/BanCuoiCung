@@ -47,23 +47,6 @@ export class ComponentsService {
     return this.httpClient.delete<any>(this.urlApi + id);
   }
 
-  public searchByDiaChi(diaChi: string): Observable<any> {
-    return this.httpClient.get<any>('http://localhost:5000//api/findAllByDiaChiContainsAndTrangThai?house=' + diaChi);
-  }
-
-  public searchBySoLuongPhongNgu(soLuong: string): Observable<any> {
-    return this.httpClient.get<any>('http://localhost:5000//api/findAllBySoLuongPhongNguLessThanEqualAndTrangThai?house=' + soLuong);
-  }
-
-  public searchBySoLuongPhongTam(soLuong: string): Observable<any> {
-    return this.httpClient.get<any>('http://localhost:5000//api/findAllBySoLuongPhongTamLessThanEqualAndTrangThai?house=' + soLuong);
-  }
-
-  public searchBetween(input: string, output: string): Observable<any> {
-    // tslint:disable-next-line:max-line-length
-    return this.httpClient.get<any>('http://localhost:5000//api/findAllByGiaTienTheoDemBetweenAndTrangThai?dauDuoi=' + input + '&dauTren=' + output);
-  }
-
   public listUser(): Observable<any> {
     return this.httpClient.get('http://localhost:5000/api/hosts/');
   }
@@ -154,6 +137,31 @@ export class ComponentsService {
 
   public deleteDeal(id: number): Observable<any> {
     return this.httpClient.delete<any>('http://localhost:5000/api/deals/' + id);
+  }
+
+  public search1(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs1?diaChi=' + diaChi + '&slpn=' + slpn + '&slpt=' + slpt + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren);
+  }
+
+  public search2(slpn: string, diaChi: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs2?slpn=' + slpn + '&diaChi=' + diaChi + '&slpt=' + slpt + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren);
+  }
+
+  public search3(slpt: string, diaChi: string, slpn: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs3?slpt=' + slpt + '&diaChi=' + diaChi + '&slpn=' + slpn + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren);
+  }
+
+  public search4(dauTren: string, dauDuoi: string, diaChi: string, slpn: string, slpt: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs4?dauDuoi=' + dauDuoi + '&dauTren=' + dauTren + '&diaChi=' + diaChi + '&slpn=' + slpn + '&slpt=' + slpt);
+  }
+
+  public search5(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs5?diaChi=' + diaChi + '&slpt=' + slpt + '&slpn=' + slpn + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren);
   }
 }
 

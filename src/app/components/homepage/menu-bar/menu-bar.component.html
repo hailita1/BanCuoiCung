@@ -58,27 +58,31 @@
           <div class="row">
             <div class="col-md-12 mb-4">
               <form [formGroup]="formGroup" class="form-inline">
-                <input formControlName="search" class="form-control col-lg-3 col-md-3 col-sm-12 p-0" type="text"
-                       placeholder="Search"
-                       aria-label="Search">
+                <input formControlName="diaChi" class="form-control col-lg-3 col-md-3 col-sm-12 p-0" type="text"
+                       placeholder="Địa chỉ"
+                       aria-label="diaChi">
+                <input formControlName="soLuongPhongNgu" class="form-control col-lg-3 col-md-3 col-sm-12 p-0"
+                       type="text"
+                       placeholder="Số lượng phòng ngủ"
+                       aria-label="soLuongPhongNgu">
+                <input formControlName="soLuongPhongTam" class="form-control col-lg-3 col-md-3 col-sm-12 p-0"
+                       type="text"
+                       placeholder="Số lượng phòng tắm"
+                       aria-label="soLuongPhongTam">
 
-                <input formControlName="input" class="form-control col-lg-3 col-md-3 col-sm-12 p-0" type="text"
-                       placeholder="Số tiền nhỏ hơn" aria-label="Search">
+                <input formControlName="soTienNhoHon" class="form-control col-lg-3 col-md-3 col-sm-12 p-0" type="text"
+                       placeholder="Số tiền nhỏ hơn" aria-label="soTienNhoHon">
 
-                <input formControlName="output" class="form-control col-lg-3 col-md-3 col-sm-12 p-0" type="text"
-                       placeholder="Số tiền lớn hơn" aria-label="Search">
-                <button type="button" class="btn" (click)="searchByDiaChi()">Tìm</button>
-
+                <input formControlName="soTienLonHon" class="form-control col-lg-3 col-md-3 col-sm-12 p-0" type="text"
+                       placeholder="Số tiền lớn hơn" aria-label="soTienLonHon">
               </form>
+              <button type="button" class="btn" (click)="search()">Tìm kiếm</button>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-
-
   <h2>Kết quả tìm kiếm</h2>
   <div class="container-body row">
     <div class="float-left col-12">
@@ -107,7 +111,6 @@
       </div>
     </div>
   </div>
-
   <h4 class="text-center">
     Khu vực nổi bật
   </h4>

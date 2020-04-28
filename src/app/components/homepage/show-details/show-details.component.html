@@ -8,7 +8,7 @@
           <div class="border">
             <div class="col-12 col-lg-9 float-left">
               <div href="#" class="hot-news-a"><h3 style="color: red">* Tên ngôi nhà: {{listHouse.tenNha}} </h3></div>
-              <div class="price"><span>* Giá: </span><strong>{{listHouse.giaTienTheoDem}}$/Đêm</strong></div>
+              <div class="price"><span>* Giá: </span><strong>{{listHouse.giaTienTheoDem}}VNĐ/Đêm</strong></div>
               <div class="acreage clearfix">
                 <p>
                   <span style="font-weight: normal">* Địa chỉ: </span> <a href="#">{{listHouse.diaChi}}</a>
@@ -28,11 +28,18 @@
                 <div class="form-group">
                   <label><span class="req">* </span> Loại phòng:  {{listHouse.categoryRoom.name}} </label>
                 </div>
+                <div class="form-group">
+                  <label><span class="req">* </span> Số lượng phòng ngủ:  {{listHouse.soLuongPhongNgu}} </label>
+                </div>
+                <div class="form-group">
+                  <label><span class="req">* </span> Số lượng phòng tắm:  {{listHouse.soLuongPhongTam}} </label>
+                </div>
                 <span>* Xem hình ảnh</span>
 
                 <div class="w3-content w3-display-container">
 
-                  <img [src]="image.tenAnh" class="mySlides w3-animate-left" style="width:100%" *ngFor="let image of listHouse.picture">
+                  <img [src]="image.tenAnh" class="mySlides w3-animate-left" style="width:100%"
+                       *ngFor="let image of listHouse.picture">
 
                   <div class="ha4" style="text-align:center">
                     <span class="dot" *ngFor="let image of listHouse.picture"></span>
