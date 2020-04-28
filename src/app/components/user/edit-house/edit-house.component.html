@@ -30,19 +30,33 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <input formControlName="tenNha" placeholder="Tên nhà *" type="text" class="form-control"
-                             id="tenNha" aria-describedby="emailHelp">
+                             id="tenNha" aria-describedby="emailHelp" [ngClass]="{'is-invalid':formGroup.get('tenNha').touched && formGroup.get('tenNha').invalid}" required />
+                      <div class="invalid-feedback">
+                        <div>Không để trống</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Địa chỉ *" formControlName="diaChi" type="text" class="form-control"
-                             id="diaChi">
+                             id="diaChi"[ngClass]="{'is-invalid':formGroup.get('diaChi').touched && formGroup.get('diaChi').invalid}"/>
+                      <div class="invalid-feedback">
+                        <div>Không để trống</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Số lượng phòng ngủ " formControlName="soLuongPhongNgu" type="text"
-                             class="form-control" id="soLuongPhongNgu">
+                             class="form-control" id="soLuongPhongNgu" [ngClass]="{'is-invalid':formGroup.get('soLuongPhongNgu').touched && formGroup.get('soLuongPhongNgu').invalid}"/>
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('soLuongPhongNgu').errors.required">Không để trống</div>
+                        <div *ngIf="formGroup.get('soLuongPhongNgu').errors.pattern">Phải là số</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Số lượng phòng tắm *" formControlName="soLuongPhongTam" type="text"
-                             class="form-control" id="soLuongPhongTam">
+                             class="form-control" id="soLuongPhongTam" [ngClass]="{'is-invalid':formGroup.get('soLuongPhongTam').touched && formGroup.get('soLuongPhongTam').invalid}" required />
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('soLuongPhongTam').errors.required">Không để trống</div>
+                        <div *ngIf="formGroup.get('soLuongPhongTam').errors.pattern">Phải là số</div>
+                      </div>
                     </div>
 
 
@@ -50,17 +64,22 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <input placeholder="Mô tả chung *" formControlName="moTaChung" type="text" class="form-control"
-                             id="moTaChung">
+                             id="moTaChung" [ngClass]="{'is-invalid':formGroup.get('moTaChung').touched && formGroup.get('moTaChung').invalid}" required />
+                      <div class="invalid-feedback">
+                        <div>Không để trống</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Giá tiền theo đêm *" formControlName="giaTienTheoDem" type="text"
-                             class="form-control" id="giaTienTheoDem">
+                             class="form-control" id="giaTienTheoDem" [ngClass]="{'is-invalid':formGroup.get('giaTienTheoDem').touched && formGroup.get('giaTienTheoDem').invalid}"/>
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('giaTienTheoDem').errors.required">Không để trống</div>
+                        <div *ngIf="formGroup.get('giaTienTheoDem').errors.pattern">Phải là số</div>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <select formControlName="trangThai">
-                        <option>Trống</option>
-                        <option>Đã thuê</option>
-                      </select>
+                      <input placeholder="Trạng thái *" formControlName="trangThai" type="text" class="form-control"
+                             id="trangThai">
                     </div>
                     <div class="form-group">
                       <div class="input-group">
@@ -68,8 +87,7 @@
                         <div class="input-group-btn">
                                   <span style="margin: 0px" class="fileUpload btn btn-primary">
                                       <span (click)="onClick()" class="upl" id="upload">Upload multiple file</span>
-                                      <input type="file" (change)="uploadFile($event)" class="upload up" id="up"
-                                             onchange="readURL(this);" multiple/>
+                                      <input type="file" (change)="uploadFile($event)" class="upload up" id="up" onchange="readURL(this);" multiple/>
                                     </span>
                         </div>
                         <div *ngIf="isLoading" class=" spinner-border" role="status">
@@ -84,8 +102,7 @@
 
                   <div class="col-md-12">
 
-                    <div formGroupName="categoryHouse" class="form-group col-6 float-left"
-                         style="padding: 0px!important;">
+                    <div formGroupName="categoryHouse" class="form-group col-6 float-left" style="padding: 0px!important;">
                       <label>House Categories</label>
                       <select formControlName="id">
                         <option *ngFor="let s of categoryHouseList" value="{{s.id}}">{{s.name}}</option>
@@ -112,7 +129,7 @@
                       </div>
                     </div>
                   </div>
-                  <button type="submit" (click)="edit()" class="btnRegister">
+                  <button type="submit" (click)="edit()" class="btnRegister" [disabled]="!formGroup.valid">
                     Edit
                   </button>
                 </div>
@@ -127,4 +144,3 @@
     </div>
   </div>
 </div>
-

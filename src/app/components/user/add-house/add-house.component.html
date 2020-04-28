@@ -29,19 +29,33 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <input formControlName="tenNha" placeholder="Tên nhà *" type="text" class="form-control"
-                             id="tenNha" aria-describedby="emailHelp">
+                             id="tenNha" aria-describedby="emailHelp" [ngClass]="{'is-invalid':formGroup.get('tenNha').touched && formGroup.get('tenNha').invalid}" required />
+                      <div class="invalid-feedback">
+                        <div>Vui lòng nhập tên nhà</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Địa chỉ *" formControlName="diaChi" type="text" class="form-control"
-                             id="diaChi">
+                             id="diaChi" [ngClass]="{'is-invalid':formGroup.get('diaChi').touched && formGroup.get('diaChi').invalid}" required />
+                      <div class="invalid-feedback">
+                        <div>Vui lòng nhập địa chỉ</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Số lượng phòng ngủ " formControlName="soLuongPhongNgu" type="text"
-                             class="form-control" id="soLuongPhongNgu">
+                             class="form-control" id="soLuongPhongNgu" [ngClass]="{'is-invalid':formGroup.get('soLuongPhongNgu').touched && formGroup.get('soLuongPhongNgu').invalid}"  />
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('soLuongPhongNgu').errors.required">Không để trống</div>
+                        <div *ngIf="formGroup.get('soLuongPhongNgu').errors.pattern">Phải là số</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Số lượng phòng tắm *" formControlName="soLuongPhongTam" type="text"
-                             class="form-control" id="soLuongPhongTam">
+                             class="form-control" id="soLuongPhongTam" [ngClass]="{'is-invalid':formGroup.get('soLuongPhongTam').touched && formGroup.get('soLuongPhongTam').invalid}"  />
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('soLuongPhongTam').errors.required">Không để trống</div>
+                        <div *ngIf="formGroup.get('soLuongPhongTam').errors.pattern">Phải là số</div>
+                      </div>
                     </div>
 
 
@@ -49,11 +63,18 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <input placeholder="Mô tả chung *" formControlName="moTaChung" type="text" class="form-control"
-                             id="moTaChung">
+                             id="moTaChung" [ngClass]="{'is-invalid':formGroup.get('diaChi').touched && formGroup.get('diaChi').invalid}" required />
+                      <div class="invalid-feedback">
+                        <div>Vui lòng nhập mô tả</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Giá tiền theo đêm *" formControlName="giaTienTheoDem" type="text"
-                             class="form-control" id="giaTienTheoDem">
+                             class="form-control" id="giaTienTheoDem" [ngClass]="{'is-invalid':formGroup.get('giaTienTheoDem').touched && formGroup.get('giaTienTheoDem').invalid}"  />
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('giaTienTheoDem').errors.required">Không để trống</div>
+                        <div *ngIf="formGroup.get('giaTienTheoDem').errors.pattern">Phải là số</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <select formControlName="trangThai">
@@ -100,7 +121,7 @@
 
 
                   </div>
-                  <button type="submit" class="btnRegister">
+                  <button type="submit" class="btnRegister" >
                     Rengster
                   </button>
                 </div>

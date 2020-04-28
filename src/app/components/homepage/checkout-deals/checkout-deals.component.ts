@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ComponentsService} from '../../components.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {IDeal} from '../../../interface/deal';
 import {IHouse} from '../../../interface/house';
 
@@ -52,11 +52,14 @@ export class CheckoutDealsComponent implements OnInit {
     }
   };
   formGroup = new FormGroup({
-    ngayDen: new FormControl(),
-    ngayDi: new FormControl(),
+    ngayDen: new FormControl('', Validators.required),
+    ngayDi: new FormControl('', Validators.required),
     danhGia: new FormControl(),
-    thanhTien: new FormControl(),
-    phanHoi: new FormControl()
+    thanhTien: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[0-9]*$'),
+    ]),
+    phanHoi: new FormControl('', Validators.required),
   });
   constructor(private componentsService: ComponentsService, private route: ActivatedRoute, private router: Router) { }
   ngOnInit(): void {

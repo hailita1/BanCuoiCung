@@ -2,15 +2,25 @@
 <form [formGroup]="formGroup" (ngSubmit)="saveDeal()">
   <div class="form-group">
     <label for="ngayDen">Ngày đặt thuê</label>
-    <input id="ngayDen"  formControlName="ngayDen" type="text" class="form-control" value=""/>
+    <input id="ngayDen"  formControlName="ngayDen" type="text" class="form-control" value="" [ngClass]="{'is-invalid':formGroup.get('ngayDen').touched && formGroup.get('ngayDen').invalid}" required="" />
+    <div class="invalid-feedback">
+      <div>Không để trống</div>
+    </div>
   </div>
   <div class="form-group">
     <label for="ngayDi">Ngày trả phòng</label>
-    <input id="ngayDi"  formControlName="ngayDi" type="text" class="form-control" value=""/>
+    <input id="ngayDi"  formControlName="ngayDi" type="date" class="form-control" value="" [ngClass]="{'is-invalid':formGroup.get('ngayDi').touched && formGroup.get('ngayDi').invalid}" required="" />
+    <div class="invalid-feedback">
+      <div>Không để trống</div>
+    </div>
   </div>
   <div class="form-group">
     <label for="tien">Thành tiền</label>
-    <input id="tien"  formControlName="thanhTien" type="text" class="form-control" value=""/>
+    <input id="tien"  formControlName="thanhTien" type="text" class="form-control" value="" [ngClass]="{'is-invalid':formGroup.get('thanhTien').touched && formGroup.get('thanhTien').invalid}"  />
+    <div class="invalid-feedback">
+      <div *ngIf="formGroup.get('thanhTien').errors.required">Không để trống</div>
+      <div *ngIf="formGroup.get('thanhTien').errors.pattern">Phải là số</div>
+    </div>
   </div>
   <h1>Đánh giá :</h1>
     <fieldset  class="rating">
@@ -21,8 +31,10 @@
       <input formControlName="danhGia" type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
     </fieldset>
     <div class="form-group">
-      <label for="exampleFormControlTextarea1"></label>
-      <input type="text" formControlName="phanHoi" class="form-control" id="exampleFormControlTextarea1">
+      <input type="text" formControlName="phanHoi" class="form-control" id="exampleFormControlTextarea1" [ngClass]="{'is-invalid':formGroup.get('phanHoi').touched && formGroup.get('phanHoi').invalid}" required="" />
+      <div class="invalid-feedback">
+        <div>Không để trống</div>
+      </div>
     </div>
   <div>
     <button type="submit">Trả phòng</button>

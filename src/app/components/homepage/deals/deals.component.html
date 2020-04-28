@@ -45,11 +45,17 @@
                 </div>
                 <div class="form-group">
                   <label for="ngayDen">Ngày đặt thuê</label>
-                  <input id="ngayDen" formControlName="ngayDen" type="date" class="form-control" value=""/>
+                  <input id="ngayDen" formControlName="ngayDen" type="date" class="form-control" value="" [ngClass]="{'is-invalid':formGroup.get('ngayDen').touched && formGroup.get('ngayDen').invalid}" required="" />
+                  <div class="invalid-feedback">
+                    <div>Không để trống</div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="ngayDi">Ngày trả phòng</label>
-                  <input id="ngayDi" formControlName="ngayDi" type="date" class="form-control" value=""/>
+                  <input id="ngayDi" formControlName="ngayDi" type="date" class="form-control" value="" [ngClass]="{'is-invalid':formGroup.get('ngayDi').touched && formGroup.get('ngayDi').invalid}" required="" />
+                  <div class="invalid-feedback">
+                    <div>Không để trống</div>
+                  </div>
                 </div>
 <!--                <div class="form-group">-->
                 <!--                  <label for="tien">Số tiền phải trả</label>-->
@@ -57,7 +63,7 @@
                 <!--                  <p>{{thanhTien}}</p>-->
                 <!--                </div>-->
                 <div>
-                  <button type="submit" (click)="payDeal()">Đặt thuê</button>
+                  <button type="submit" (click)="payDeal()" >Đặt thuê</button>
                 </div>
                 <div *ngIf="isShow"
                      class="alert {{ (isSuccess) ? 'alert-success' : 'alert-danger' }}"
