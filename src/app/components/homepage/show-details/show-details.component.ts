@@ -33,6 +33,7 @@ export class ShowDetailsComponent implements OnInit {
         this.idHouseLocal = this.listHouse.idNha;
         console.log(this.idHouseLocal);
         localStorage.setItem('idHouse', this.idHouseLocal);
+
       });
       this.componentsService.findByDealOfHouse(idSearch).subscribe( result => {
         this.deaslList = result;

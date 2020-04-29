@@ -76,8 +76,8 @@ a:hover{
 }
 
 button.btn {
-  width: 35%;
-  margin-right: 10%;
+  margin: 0px!important;
+  margin-bottom: 20px!important;
   background: #055699;
   color: white;
 }
@@ -138,6 +138,7 @@ a.hot-news-a{
   box-sizing: border-box;
   border: 1px solid #E13427 !important;
   display: flex;
+  margin-bottom: 15px;
 }
 .border img {
   height: 180px;
@@ -208,6 +209,7 @@ nav.navbar.navbar-expand-lg {
 .alo {
   position: relative;
   top: 85px;
+  max-width: 1400px;
 }
 
 

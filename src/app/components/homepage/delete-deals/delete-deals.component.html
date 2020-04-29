@@ -1,10 +1,12 @@
+<app-menu-bar></app-menu-bar>
 <div class="container clearfix">
+  <h1>XÓA ĐƠN NHÀ ĐANG THUÊ</h1>
   <div class="row ">
     <div class="float-left col-12 col-lg-8">
       <div class="container-body row">
         <div class="float-left col-12">
-          <div class="border">
-            <div class="col-12 col-lg-9 float-left">
+          <div class="borders">
+            <div class="col-12 float-left">
               <div href="#" class="hot-news-a"><h3 style="color: red">* Tên ngôi nhà: {{dealsList.house.tenNha}} </h3>
               </div>
               <div class="price"><span>* Giá: </span><strong>{{dealsList.house.giaTienTheoDem}}$/Đêm</strong></div>
@@ -49,17 +51,29 @@
                 <br>
 
               </form>
-              <div>Thông tin deal</div>
-              <div>Ngày đặt thuê: {{dealsList.ngayDen}}</div>
-              <div>Ngày trả phòng: {{dealsList.ngayDi}}</div>
-              <div>Thành tiền: {{dealsList.thanhTien}}</div>
-              <button type="button" class="btn btn-danger ml-3" routerLink="/customer/{{dealsList.customer.idCustomer}}"
-                      (click)="deleteDeal(dealsList)">Huỷ đơn
-              </button>
+
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="float-left col-12 col-lg-4">
+      <div class="container-body sidebar_submenu">
+        <div class="title">Danh mục cho thuê</div>
+          <div class="form-group">
+            <div>Thông tin deal</div>
+            <div>Ngày đặt thuê: {{dealsList.ngayDen}}</div>
+            <div>Ngày trả phòng: {{dealsList.ngayDi}}</div>
+            <div>Thành tiền: {{dealsList.thanhTien}}</div>
+
+          </div>
+        <button type="button" class="btn grad" routerLink="/customer/{{dealsList.customer.idCustomer}}"
+                (click)="deleteDeal(dealsList)">Huỷ đơn</button>
+          </div>
+      </div>
+    </div>
+
   </div>
-</div>
+
+<app-footer></app-footer>

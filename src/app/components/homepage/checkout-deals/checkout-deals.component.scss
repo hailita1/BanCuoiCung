@@ -41,3 +41,11 @@ h1 { font-size: 1.5em; margin: 10px; }
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
 
+.container.clearfix {
+  margin-top: 100px;
+}
+.form-control {
+  border: 1px solid #868a8d;
+}
+
+

@@ -87,6 +87,7 @@ export class CheckoutDealsComponent implements OnInit {
     this.deals.customer.idCustomer = this.dealsList.customer.idCustomer;
     this.componentsService.updateDeals(this.deals).subscribe();
     this.updateHouse();
+    alert("Trả phòng thành công");
     this.router.navigate(['/customer/', this.dealsList.customer.idCustomer]).then( (e) => {
       if (e) {
         console.log('Navigation is successful!');

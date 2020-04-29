@@ -84,6 +84,7 @@ export class DealsComponent implements OnInit {
       this.router.navigate(['/customer/', Number(this.idCustomer)]).then((e) => {
         if (e) {
           console.log('Navigation is successful!');
+          alert("đặt phòng thành công ")
         } else {
           console.log('Navigation has failed!');
         }

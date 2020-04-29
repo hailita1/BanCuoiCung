@@ -1,3 +1,6 @@
+.container.clearfix {
+  margin-top: 100px;
+}
 .hot-news {
   margin-top: 20px;
 }
@@ -109,11 +112,98 @@ img.mySlides {
   background-color: #717171;
 }
 
-button.w3-button.w3-black.w3-display-right {
-  left: 122%;
-}
+
 .ha4 {
   width: 100%;
-  margin-left: 92px;
   margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.comment-list .row {
+  margin-bottom: 0px;
+}
+.comment-list .panel .panel-heading {
+  padding: 4px 15px;
+  position: absolute;
+  border:none;
+  border-top-right-radius:0px;
+  top: 1px;
+}
+.comment-list .panel .panel-heading.right {
+  border-right-width: 0px;
+  border-top-left-radius:0px;
+  right: 16px;
+}
+.comment-list .panel .panel-heading .panel-body {
+  padding-top: 6px;
+}
+.comment-list figcaption {
+  word-wrap: break-word;
+}
+
+
+.comment-list .comment-post {
+  margin-top: 6px;
+}
+img.img-responsive {
+  height: 100%!important;
+}
+
+.panel.panel-default.arrow.left {
+  padding: 15px;
+  border: 1px solid;
+}
+button.btn.grad {
+  width: 100%;
+  margin: 0px;
+  background: linear-gradient(90deg,#3e5be7 0,#4082d4 51%,#055699);
+  color: white;
+  font-weight: bold;
+}
+button.w3-button.w3-black.w3-display-right {
+  left: 90%;
+}
+
+  .comment-list .arrow:after, .comment-list .arrow:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+  }
+  .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
+    border-left: 0;
+  }
+
+  .comment-list .panel.arrow.left:before {
+    left: 0px;
+    top: 30px;
+
+    border-right-color: inherit;
+    border-width: 16px;
+  }
+
+  .comment-list .panel.arrow.left:after {
+    left: 1px;
+    top: 31px;
+    border-right-color: #FFFFFF;
+    border-width: 15px;
+  }
+
+  .comment-list .panel.arrow.right:before {
+    right: -16px;
+    top: 30px;
+    border-left-color: inherit;
+    border-width: 16px;
+  }
+  .comment-list .panel.arrow.right:after {
+    right: -14px;
+    top: 31px;
+    border-left-color: #FFFFFF;
+    border-width: 15px;
+  }
+
+.rows{
+  margin-bottom: 20px;
 }
