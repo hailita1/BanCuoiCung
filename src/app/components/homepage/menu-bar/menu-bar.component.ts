@@ -71,7 +71,7 @@ export class MenuBarComponent implements OnInit {
     let dauTren = this.formGroup.get('soTienLonHon').value;
     let dauDuoi = this.formGroup.get('soTienNhoHon').value;
     // tslint:disable-next-line:triple-equals
-    if (slpn == ' ' && slpt == ' ' && dauTren == ' ' && dauDuoi == ' ') {
+    if (slpn == null && slpt == null && dauTren == null && dauDuoi == null) {
       slpn = '0';
       slpt = '0';
       dauTren = '0';
@@ -80,7 +80,7 @@ export class MenuBarComponent implements OnInit {
         this.listHouse = result;
       });
       // tslint:disable-next-line:triple-equals
-    } else if (diaChi == ' ' && slpt == ' ' && dauTren == ' ' && dauDuoi == ' ') {
+    } else if (diaChi == null && slpt == null && dauTren == null && dauDuoi == null) {
       diaChi = '0';
       slpt = '0';
       dauTren = '0';
@@ -89,7 +89,7 @@ export class MenuBarComponent implements OnInit {
         this.listHouse = result;
       });
       // tslint:disable-next-line:triple-equals
-    } else if (diaChi == ' ' && slpn == ' ' && dauTren == ' ' && dauDuoi == ' ') {
+    } else if (diaChi == null && slpn == null && dauTren == null && dauDuoi == null) {
       diaChi = '0';
       slpn = '0';
       dauTren = '0';
@@ -98,7 +98,7 @@ export class MenuBarComponent implements OnInit {
         this.listHouse = result;
       });
       // tslint:disable-next-line:triple-equals
-    } else if (diaChi == ' ' && slpn == ' ' && slpt == ' ') {
+    } else if (diaChi == null && slpn == null && slpt == null) {
       diaChi = '0';
       slpn = '0';
       slpt = '0';
@@ -106,11 +106,68 @@ export class MenuBarComponent implements OnInit {
         this.listHouse = result;
       });
       // tslint:disable-next-line:triple-equals
-    } else if (slpn == ' ' && dauTren == ' ' && dauDuoi == ' ') {
+    } else if (slpn == null && dauTren == null && dauDuoi == null) {
       slpn = '0';
       dauDuoi = '0';
       dauTren = '0';
       this.componentsService.search5(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+    } else if (slpt == null && dauTren == null && dauDuoi == null) {
+      slpt = '0';
+      dauDuoi = '0';
+      dauTren = '0';
+      this.componentsService.search6(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+    } else if (slpt == null && slpn == null) {
+      slpt = '0';
+      slpn = '0';
+      this.componentsService.search7(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+    } else if (diaChi == null && dauDuoi == null && dauTren == null) {
+      diaChi = '0';
+      dauTren = '0';
+      dauDuoi = '0';
+      this.componentsService.search8(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+    } else if (diaChi == null && slpn == null) {
+      diaChi = '0';
+      slpn = '0';
+      this.componentsService.search9(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+    } else if (diaChi == null && slpt == null) {
+      diaChi = '0';
+      slpt = '0';
+      this.componentsService.search10(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+    } else if (dauDuoi == null && dauTren == null) {
+      dauTren = '0';
+      dauDuoi = '0';
+      this.componentsService.search11(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+    } else if (slpn == null) {
+      slpn = '0';
+      this.componentsService.search12(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+    } else if (slpt == null) {
+      slpt = '0';
+      this.componentsService.search13(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+    } else if (diaChi == null) {
+      diaChi = '0';
+      this.componentsService.search14(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
+        this.listHouse = result;
+      });
+    } else {
+      this.componentsService.search15(diaChi, slpn, slpt, dauDuoi, dauTren).subscribe(result => {
         this.listHouse = result;
       });
     }

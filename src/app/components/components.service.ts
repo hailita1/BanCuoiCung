@@ -163,5 +163,55 @@ export class ComponentsService {
     // tslint:disable-next-line:max-line-length
     return this.httpClient.get('http://localhost:5000/api/searchs5?diaChi=' + diaChi + '&slpt=' + slpt + '&slpn=' + slpn + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren);
   }
+
+  public search6(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs6?diaChi=' + diaChi + '&slpn=' + slpn + '&slpt=' + slpt + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren);
+  }
+
+  public search7(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs7?diaChi=' + diaChi + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren + '&slpn=' + slpn + '&slpt=' + slpt);
+  }
+
+  public search8(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs8?slpt=' + slpt + '&slpn=' + slpn + '&diaChi=' + diaChi + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren);
+  }
+
+  public search9(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs9?slpt=' + slpt + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren + '&diaChi=' + diaChi + '&slpn=' + slpn);
+  }
+
+  public search10(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs10?slpn=' + slpn + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren + '&diaChi=' + diaChi + '&slpt=' + slpt);
+  }
+
+  public search11(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs11?diaChi=' + diaChi + '&slpn=' + slpn + '&slpt=' + slpt + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren);
+  }
+
+  public search12(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs12?diaChi=' + diaChi + '&slpt=' + slpt + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren + '&slpn=' + slpn);
+  }
+
+  public search13(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs13?diaChi=' + diaChi + '&slpn=' + slpn + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren + '&slpt=' + slpt);
+  }
+
+  public search14(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs14?slpn=' + slpn + '&slpt=' + slpt + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren + '&diaChi=' + diaChi);
+  }
+
+  public search15(diaChi: string, slpn: string, slpt: string, dauDuoi: string, dauTren: string): Observable<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get('http://localhost:5000/api/searchs15?diaChi=' + diaChi + '&slpn=' + slpn + '&slpt=' + slpt + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren);
+  }
 }
 
