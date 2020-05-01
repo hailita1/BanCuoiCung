@@ -5,9 +5,8 @@
       <div class="row">
 
         <div class="col-md-3 register-left">
-          <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+          <img src="https://www.theskyhouse.com/wp-content/uploads/2016/03/skyhouselogo-4.png" height="100px" width="100px" style="width:170px"/>
           <h3>Welcome</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, libero.</p>
           <a routerLink="/user/house/{{house.host.idChuNha}}">Quay về</a><br/>
         </div>
 
@@ -30,19 +29,33 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <input formControlName="tenNha" placeholder="Tên nhà *" type="text" class="form-control"
-                             id="tenNha" aria-describedby="emailHelp">
+                             id="tenNha" [ngClass]="{'is-invalid':formGroup.get('tenNha').touched && formGroup.get('tenNha').invalid}" required="" />
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('tenNha').errors?.required">Không để trống</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Địa chỉ *" formControlName="diaChi" type="text" class="form-control"
-                             id="diaChi">
+                             id="diaChi" [ngClass]="{'is-invalid':formGroup.get('diaChi').touched && formGroup.get('diaChi').invalid}" required="" />
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('diaChi').errors?.required">Không để trống</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Số lượng phòng ngủ " formControlName="soLuongPhongNgu" type="text"
-                             class="form-control" id="soLuongPhongNgu">
+                             class="form-control" id="soLuongPhongNgu" [ngClass]="{'is-invalid':formGroup.get('soLuongPhongNgu').touched && formGroup.get('soLuongPhongNgu').invalid}" required=""/>
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('soLuongPhongNgu').errors?.required">Không để trống</div>
+                        <div *ngIf="formGroup.get('soLuongPhongNgu').errors?.pattern">Phải là số</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Số lượng phòng tắm *" formControlName="soLuongPhongTam" type="text"
-                             class="form-control" id="soLuongPhongTam">
+                             class="form-control" id="soLuongPhongTam" [ngClass]="{'is-invalid':formGroup.get('soLuongPhongTam').touched && formGroup.get('soLuongPhongTam').invalid}"/>
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('soLuongPhongTam').errors?.required">Không để trống</div>
+                        <div *ngIf="formGroup.get('soLuongPhongTam').errors?.pattern">Phải là số</div>
+                      </div>
                     </div>
 
 
@@ -50,11 +63,18 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <input placeholder="Mô tả chung *" formControlName="moTaChung" type="text" class="form-control"
-                             id="moTaChung">
+                             id="moTaChung" [ngClass]="{'is-invalid':formGroup.get('moTaChung').touched && formGroup.get('moTaChung').invalid}" required="" />
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('moTaChung').errors?.required">Không để trống</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <input placeholder="Giá tiền theo đêm *" formControlName="giaTienTheoDem" type="text"
-                             class="form-control" id="giaTienTheoDem">
+                             class="form-control" id="giaTienTheoDem" [ngClass]="{'is-invalid':formGroup.get('giaTienTheoDem').touched && formGroup.get('giaTienTheoDem').invalid}" required=""/>
+                      <div class="invalid-feedback">
+                        <div *ngIf="formGroup.get('giaTienTheoDem').errors?.required">Không để trống</div>
+                        <div *ngIf="formGroup.get('giaTienTheoDem').errors?.pattern">Phải là số</div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <select formControlName="trangThai">
@@ -112,7 +132,7 @@
                       </div>
                     </div>
                   </div>
-                  <button type="submit" (click)="edit()" class="btnRegister">
+                  <button type="submit" (click)="edit()" class="btnRegister" [disabled]="!formGroup.valid">
                     Edit
                   </button>
                 </div>
@@ -127,4 +147,3 @@
     </div>
   </div>
 </div>
-

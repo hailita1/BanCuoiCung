@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ComponentsService} from '../../components.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {IDeal} from '../../../interface/deal';
@@ -40,8 +40,8 @@ export class DealsComponent implements OnInit {
   formGroup = new FormGroup({
     categoryHouseId: new FormControl(),
     categoryRoomId: new FormControl(),
-    ngayDen: new FormControl(),
-    ngayDi: new FormControl(),
+    ngayDen: new FormControl('', Validators.required),
+    ngayDi: new FormControl('', Validators.required),
     danhGia: new FormControl(),
     trangThai: new FormControl(),
     thanhTien: new FormControl(),

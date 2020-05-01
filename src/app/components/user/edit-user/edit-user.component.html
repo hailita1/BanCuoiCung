@@ -27,7 +27,11 @@
 
                 <div class="col-xs-6">
                   <div class="form-group">
-                    <input formControlName="userName" placeholder="User Name *" type="text" class="form-control" id="tenNha" aria-describedby="emailHelp">
+                    <input formControlName="userName" placeholder="User Name *" type="text" class="form-control" id="tenNha" aria-describedby="emailHelp" [ngClass]="{'is-invalid':formGroup.get('userName').touched && formGroup.get('userName').invalid}"   />
+                    <div class="invalid-feedback">
+                      <div *ngIf="formGroup.get('userName').errors?.required">Vui lòng nhập tên đăng nhập</div>
+                      <!--                <div *ngIf="formGroup.get('userName').errors?.minLength">Tối thiểu 12 kí tự</div>-->
+                    </div>
                   </div>
                 </div>
               </div>
@@ -35,7 +39,11 @@
 
                 <div class="col-xs-6">
                   <div class="form-group">
-                    <input placeholder="Mật khẩu *" formControlName="password" type="text" class="form-control" id="diaChi">
+                    <input placeholder="Mật khẩu *" formControlName="password" type="text" class="form-control" id="diaChi" [ngClass]="{'is-invalid':formGroup.get('password').touched && formGroup.get('password').invalid}"   />
+                    <div class="invalid-feedback">
+                      <div *ngIf="formGroup.get('password').errors?.required">Vui lòng nhập mật khẩu</div>
+                      <div *ngIf="formGroup.get('password').errors?.minLength">Tối thiểu 6 kí tự</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -44,19 +52,30 @@
                 <div class="form-group">
                   <input placeholder="Họ tên *" formControlName="hoTen" type="text" class="form-control" id="soLuongPhongNgu">
                 </div>
+                <input id="name"  formControlName="hoTen" type="text" class="form-control" placeholder="Your Name *" value="" [ngClass]="{'is-invalid':formGroup.get('hoTen').touched && formGroup.get('hoTen').invalid}"   />
+                <div class="invalid-feedback">
+                  <div *ngIf="formGroup.get('hoTen').errors?.required">Không để trống</div>
+                </div>
               </div>
 
 
               <div class="form-group">
                 <div class="col-xs-6">
                   <div class="form-group">
-                    <input placeholder="Địa chỉ *" formControlName="diaChi" type="text" class="form-control" id="soLuongPhongTam">
+                    <input placeholder="Địa chỉ *" formControlName="diaChi" type="text" class="form-control" id="soLuongPhongTam" [ngClass]="{'is-invalid':formGroup.get('diaChi').touched && formGroup.get('diaChi').invalid}"   />
+                    <div class="invalid-feedback">
+                      <div *ngIf="formGroup.get('diaChi').errors?.required">Không để trống</div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-xs-6">
-                    <input placeholder="Number phone *" formControlName="sdt" type="text" class="form-control" id="sdt">
+                  <input placeholder="Number phone *" formControlName="sdt" type="text" class="form-control" id="sdt" [ngClass]="{'is-invalid':formGroup.get('sdt').touched && formGroup.get('sdt').invalid}"   />
+                  <div class="invalid-feedback">
+                    <div *ngIf="formGroup.get('sdt').errors?.required">Không để trống</div>
+                    <div *ngIf="formGroup.get('sdt').errors?.pattern">Vui lòng nhập đúng định dạng</div>
+                  </div>
                 </div>
               </div>
               <div class="form-group">
@@ -72,12 +91,10 @@
 
           </div>
 
+        </div>
+
       </div>
+    </div><
 
-    </div>
-  </div><
-
-    </div>
   </div>
-
-
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ComponentsService} from '../../components.service';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {IHost} from '../../../interface/host';
 
 @Component({
@@ -18,11 +18,20 @@ export class SignUpComponent implements OnInit {
     sdt: ''
 }
   formGroup = new FormGroup({
-    userName: new FormControl(),
-    password: new FormControl(),
-    hoTen: new FormControl(),
-    diaChi: new FormControl(),
-    sdt: new FormControl()
+    userName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(12)
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6)
+    ]),
+    hoTen: new FormControl('', Validators.required),
+    diaChi: new FormControl('', Validators.required),
+    sdt: new FormControl('', [
+      Validators.required,
+      Validators.pattern('/((09|03|07|08|05)+([0-9]{8})\\b)/g'),
+    ]),
   });
   message = '';
   isShow = false;

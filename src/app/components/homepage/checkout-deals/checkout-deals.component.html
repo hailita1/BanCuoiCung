@@ -6,19 +6,29 @@
       <div class="container-body row">
         <div class="float-left col-12">
           <div class="borders">
-  ``      <div class="col-12 float-left">
+      <div class="col-12 float-left">
   <form [formGroup]="formGroup" (ngSubmit)="saveDeal()">
     <div class="form-group">
       <label for="ngayDen">Ngày đặt thuê</label>
-      <input id="ngayDen"  formControlName="ngayDen" type="text" class="form-control" value=""/>
+      <input id="ngayDen"  formControlName="ngayDen" type="date" class="form-control" value="" [ngClass]="{'is-invalid':formGroup.get('ngayDen').touched && formGroup.get('ngayDen').invalid}" required="" />
+      <div class="invalid-feedback">
+        <div *ngIf="formGroup.get('ngayDen').errors?.required">Không để trống</div>
+      </div>
     </div>
     <div class="form-group">
       <label for="ngayDi">Ngày trả phòng</label>
-      <input id="ngayDi"  formControlName="ngayDi" type="text" class="form-control" value=""/>
+      <input id="ngayDi"  formControlName="ngayDi" type="date" class="form-control" value="" [ngClass]="{'is-invalid':formGroup.get('ngayDi').touched && formGroup.get('ngayDi').invalid}" required="" />
+      <div class="invalid-feedback">
+        <div *ngIf="formGroup.get('ngayDi').errors?.required">Không để trống</div>
+      </div>
     </div>
     <div class="form-group">
       <label for="tien">Thành tiền</label>
-      <input id="tien"  formControlName="thanhTien" type="text" class="form-control" value=""/>
+      <input id="tien"  formControlName="thanhTien" type="text" class="form-control" value="" [ngClass]="{'is-invalid':formGroup.get('thanhTien').touched && formGroup.get('thanhTien').invalid}" required=""/>
+      <div class="invalid-feedback">
+        <div *ngIf="formGroup.get('thanhTien').errors?.required">Không để trống</div>
+        <div *ngIf="formGroup.get('thanhTien').errors?.pattern">Phải là số</div>
+      </div>
     </div>
     <h1>Đánh giá :</h1>
       <fieldset  class="rating">
@@ -34,7 +44,7 @@
       </div>
     <div>
       <button type="submit">Trả phòng</button>
-    </div>``
+    </div>
 </form>
 </div>
 </div>

@@ -2,8 +2,16 @@
 <div class="box">
   <form class="login-form" [formGroup]="formGroup" (ngSubmit)="checkUser()">
     <h1>Đăng nhập</h1>
-    <input type="text" formControlName="userName" name="username" placeholder="Tên đăng nhập" required>
-    <input type="password" formControlName="password" name="password" placeholder="Mật khẩu" required>
+    <input type="text" formControlName="userName" name="username" placeholder="Tên đăng nhập" [ngClass]="{'is-invalid':formGroup.get('userName').touched && formGroup.get('userName').invalid}" />
+    <div class="invalid-feedback">
+      <div *ngIf="formGroup.get('userName').errors?.required">Vui lòng nhập tên đăng nhập</div>
+      <!--                  <div *ngIf="formGroup.get('userName').errors?.minLength">Tối thiểu 12 kí tự</div>-->
+    </div>
+    <input type="password" formControlName="password" name="password" placeholder="Mật khẩu" [ngClass]="{'is-invalid':formGroup.get('password').touched && formGroup.get('password').invalid}"  />
+    <div class="invalid-feedback">
+      <div *ngIf="formGroup.get('password').errors?.required">Vui lòng nhập mật khẩu</div>
+      <div *ngIf="formGroup.get('password').errors?.minLength">Tối thiểu 6 kí tự</div>
+    </div>
     <input *ngIf="false" type="text" formControlName="check" name="password" placeholder="Password" value="{{checkLogin.id}}" required>
     <input type="submit" name="Login" value="Login">
     <div class="links">

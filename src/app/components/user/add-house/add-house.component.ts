@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ComponentsService} from '../../components.service';
 import {AngularFireDatabase} from '@angular/fire/database';
 import * as firebase from 'firebase';
@@ -44,13 +44,22 @@ export class AddHouseComponent implements OnInit {
     }]
   };
   formGroup = new FormGroup({
-    tenNha: new FormControl(),
-    diaChi: new FormControl(),
-    soLuongPhongNgu: new FormControl(),
-    soLuongPhongTam: new FormControl(),
-    moTaChung: new FormControl(),
-    giaTienTheoDem: new FormControl(),
-    trangThai: new FormControl(),
+    tenNha: new FormControl('', Validators.required),
+    diaChi: new FormControl('', Validators.required),
+    soLuongPhongNgu: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[0-9]*$'),
+    ]),
+    soLuongPhongTam: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[0-9]*$'),
+    ]),
+    moTaChung: new FormControl('', Validators.required),
+    giaTienTheoDem: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[0-9]*$'),
+    ]),
+    trangThai: new FormControl('', Validators.required),
     categoryHouse: new FormGroup({
         id: new FormControl(),
       }
@@ -169,6 +178,8 @@ export class AddHouseComponent implements OnInit {
   onClick() {
     myTest();
   }
-
+  // onSubmit(){
+  //   alert(JSON.stringify(this.formGroup.value));
+  // }
 
 }

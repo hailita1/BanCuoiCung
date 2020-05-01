@@ -69,11 +69,17 @@
         <div class="form-group">
           <div class="price"><span class="extra">{{listHouse.giaTienTheoDem}}đ</span><span class="smail">/Đêm</span></div>
           <label for="ngayDen">Ngày đặt thuê</label>
-          <input id="ngayDen" formControlName="ngayDen" type="date" class="form-control" value=""/>
+          <input id="ngayDen" formControlName="ngayDen" type="date" class="form-control" value="" [ngClass]="{'is-invalid':formGroup.get('ngayDen').touched && formGroup.get('ngayDen').invalid}" required="" />
+          <div class="invalid-feedback">
+            <div *ngIf="formGroup.get('ngayDen').errors?.required">Không để trống</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="ngayDi">Ngày trả phòng</label>
-          <input id="ngayDi" formControlName="ngayDi" type="date" class="form-control" value=""/>
+          <input id="ngayDi" formControlName="ngayDi" type="date" class="form-control" value="" [ngClass]="{'is-invalid':formGroup.get('ngayDi').touched && formGroup.get('ngayDi').invalid}" required="" />
+          <div class="invalid-feedback">
+            <div *ngIf="formGroup.get('ngayDi').errors?.required">Không để trống</div>
+          </div>
         </div>
           <button class="btn grad" type="submit" (click)="payDeal()">Đặt thuê</button>
           <div *ngIf="isShow"

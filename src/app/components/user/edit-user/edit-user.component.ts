@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ComponentsService} from '../../components.service';
 import {ActivatedRoute} from '@angular/router';
 import {IHost} from '../../../interface/host';
@@ -26,11 +26,27 @@ export class EditUserComponent implements OnInit {
   isLoading = false;
   formGroup = new FormGroup({
     idChuNha: new FormControl(),
-    userName: new FormControl(),
-    password: new FormControl(),
-    hoTen: new FormControl(),
-    diaChi: new FormControl(),
-    sdt: new FormControl()
+    userName: new FormControl('', [
+      Validators.required,
+      // Validators.minLength(6)
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6)
+    ]),
+    hoTen: new FormControl('', [
+      Validators.required,
+      // Validators.maxLength(8)
+    ]),
+    cmnd: new FormControl('', [
+      Validators.required,
+      Validators.pattern('[0-9]{12}')
+    ]),
+    diaChi: new FormControl('', Validators.required),
+    sdt: new FormControl('', [
+      Validators.required,
+      Validators.pattern('/((09|03|07|08|05)+([0-9]{8})\\b)/g'),
+    ]),
   });
   constructor(private componentsService: ComponentsService, private route: ActivatedRoute) { }
 
