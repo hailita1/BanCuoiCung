@@ -169,6 +169,4 @@ export class AddHouseComponent implements OnInit {
   onClick() {
     myTest();
   }
-
-
 }

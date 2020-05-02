@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class MenuBarComponent implements OnInit {
 
+  isShowForm = false;
   checkLogin: any;
   idCustomer: any;
   listHouse: any[];
@@ -47,6 +48,7 @@ export class MenuBarComponent implements OnInit {
       this.listCheck = result;
       this.formGroupCheck.controls.check.setValue(!this.listCheck.checkLogin);
     });
+    this.isShowForm = Boolean(localStorage.getItem('check'));
   }
 
   exit() {
