@@ -18,6 +18,7 @@ export class EditHouseComponent implements OnInit {
   myItems: File[] = [];
   isDone = false;
   picture: Picture[];
+  picture2: Picture[];
   listUser: any[];
   arrayPicture: Picture[] = [];
   categoryHouseList: any[];
@@ -75,15 +76,15 @@ export class EditHouseComponent implements OnInit {
       diaChi: new FormControl(),
       sdt: new FormControl()
     }),
-    picture: new FormArray([
-    ])
+    picture: new FormArray([])
   });
+
   get pictureList(): FormArray {
     return this.formGroup.get('picture') as FormArray;
   }
 
   addPicture() {
-    this.pictureList.push(new FormGroup ({
+    this.pictureList.push(new FormGroup({
       idAnh: new FormControl(),
       tenAnh: new FormControl(),
     }));
@@ -125,9 +126,15 @@ export class EditHouseComponent implements OnInit {
         this.formGroup.controls.picture.setValue(this.house.picture);
       });
       this.idTest = Number(idSearch);
+      this.image();
     });
   }
 
+  image() {
+    this.componentsService.Image(this.idTest).subscribe(result2 => {
+      this.picture2 = result2;
+    });
+  }
 
   edit() {
     this.house.idNha = this.idTest;
@@ -140,9 +147,10 @@ export class EditHouseComponent implements OnInit {
     this.house.trangThai = this.formGroup.get('trangThai').value;
     // this.house.host =  this.formGroup.get('host').value;
     this.house.categoryHouse = this.formGroup.get('categoryHouse').value;
-    this.house.categoryRoom =  this.formGroup.get('categoryRoom').value;
+    this.house.categoryRoom = this.formGroup.get('categoryRoom').value;
     this.house.picture = this.arrayPicture;
     this.componentsService.editHouse(this.house).subscribe(result => {
+      this.image();
       this.isShow = true;
       this.isSuccess = true;
       this.message = 'Sửa thành công!';
@@ -206,12 +214,13 @@ export class EditHouseComponent implements OnInit {
 
   pushDeleteImage(index: number) {
     let picture1: Picture[];
-    picture1 = this.house.picture.splice(index, 1);
+    picture1 = this.picture2.splice(index, 1);
     for (let i = 0; i < picture1.length; i++) {
       this.arrayPicture.push(picture1[i]);
     }
     console.log(this.arrayPicture);
   }
+
   onClick() {
     myTest();
   }

@@ -213,5 +213,8 @@ export class ComponentsService {
     // tslint:disable-next-line:max-line-length
     return this.httpClient.get('http://localhost:5000/api/searchs15?diaChi=' + diaChi + '&slpn=' + slpn + '&slpt=' + slpt + '&dauDuoi=' + dauDuoi + '&dauTren=' + dauTren);
   }
+  public Image(id: number): Observable<any> {
+    return this.httpClient.get('http://localhost:5000/api/findAllByHouse?house=' + id);
+  }
 }
 
