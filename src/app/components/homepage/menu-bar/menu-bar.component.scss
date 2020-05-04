@@ -10,11 +10,11 @@ ul{
 }
 
 a.nav-link {
-  color: #055699 !important;
+  color: #055699;
   text-transform: uppercase;
   letter-spacing: .05em;
   font-size: 16px;
-  text-decoration: none !important;
+  text-decoration: none;
   font-weight: bold;
 }
 
@@ -221,7 +221,16 @@ nav.navbar.navbar-expand-lg {
 .sparkle:hover {
   cursor: pointer;
 }
-
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active{
+  background-color: #d6d6d6 !important;
+}
+a {
+  font-weight: 400 !important;
+  text-decoration: none;
+}
 .u-hover--sparkle {
   box-sizing: border-box;
   position: relative;

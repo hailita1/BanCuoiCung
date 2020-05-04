@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ComponentsService} from '../../components.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Route, Router} from '@angular/router';
-
-
 
 
 @Component({
@@ -25,21 +23,23 @@ export class LoginComponent implements OnInit {
   isShow = false;
   isSuccess = true;
 
-  constructor(private componentsService: ComponentsService, private route: Router) { }
+  constructor(private componentsService: ComponentsService, private route: Router) {
+  }
 
   ngOnInit(): void {
-    this.componentsService.listUser().subscribe( result => {
+    this.componentsService.listUser().subscribe(result => {
       this.listUser = result;
     });
   }
+
   checkUser() {
     const userName = this.formGroup.get('userName').value;
     const password = this.formGroup.get('password').value;
-    for (let i = 0; i < this.listUser.length ; i++) {
+    for (let i = 0; i < this.listUser.length; i++) {
       if (this.listUser[i].userName === userName && this.listUser[i].password === password) {
         this.check = true;
         this.userId = this.listUser[i].idChuNha;
-        this.route.navigate(['/user/', this.userId]).then( (e) => {
+        this.route.navigate(['/user/', this.userId]).then((e) => {
           if (e) {
             console.log('Navigation is successful!');
           } else {
@@ -47,13 +47,6 @@ export class LoginComponent implements OnInit {
           }
         });
       }
-      // else {
-      //   this.isShow = true;
-      //   this.isSuccess = false;
-      //   this.message = 'Sai tài khoản hoặc mật khẩu.';
-      //   this.isLoading = false;
-      //   this.formGroup.reset();
-      // }
     }
   }
 }
