@@ -21,6 +21,7 @@ import {ShowDetailCustomerComponent} from './homepage/show-detail-customer/show-
 import {CheckoutDealsComponent} from './homepage/checkout-deals/checkout-deals.component';
 import {HistoryHouseComponent} from './user/history-house/history-house.component';
 import {DeleteDealsComponent} from './homepage/delete-deals/delete-deals.component';
+import {EditCustomerComponent} from './homepage/edit-customer/edit-customer.component';
 
 const routes: Routes = [{ path: 'home', component: HomepageComponent },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -28,6 +29,7 @@ const routes: Routes = [{ path: 'home', component: HomepageComponent },
   {path: 'deals', component: DealsComponent},
   {path: 'checkout-deals/:id', component: CheckoutDealsComponent},
   {path: 'delete-deals/:id', component: DeleteDealsComponent},
+  {path: 'edit-customer/:id', component: EditCustomerComponent},
   {path: 'customer/:id', component: ShowDetailCustomerComponent},
   {path: 'history/:id', component: HistoryHouseComponent},
   {path: 'user/:id', component: HomeListComponent},

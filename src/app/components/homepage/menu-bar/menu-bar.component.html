@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg">
-  <p class="navbar-brand" ><img style="height: 60px; width: 120px" src="https://www.theskyhouse.com/wp-content/uploads/2016/03/skyhouselogo-4.png"></p>
+  <p class="navbar-brand"><img style="height: 60px; width: 120px"
+                               src="https://www.theskyhouse.com/wp-content/uploads/2016/03/skyhouselogo-4.png"></p>
 
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -19,21 +20,35 @@
         <a class="nav-link sparkle u-hover--sparkle"
            *ngIf="(checkLogin === 'true' || checkLogin == null) ? true : false" routerLink="/login-homepage">Đăng
           nhập</a>
-        <a class="nav-link" *ngIf="checkLogin === 'false' ? true : false" (click)="exit()" href="/">Đăng xuất</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sparkle u-hover--sparkle" routerLink="/signup-homepage">Đăng ký</a>
+        <a class="nav-link sparkle u-hover--sparkle"
+           *ngIf="(checkLogin === 'true' || checkLogin == null) ? true : false" routerLink="/signup-homepage">Đăng
+          ký</a>
       </li>
       <li class="nav-item">
         <a class="nav-link">
           <app-login></app-login>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link sparkle u-hover--sparkle" *ngIf="checkLogin === 'false' ? true : false"
-           routerLink="/customer/{{idCustomer}}">{{customerName}}</a>
-      </li>
+      <!--      <li class="nav-item">-->
+      <!--        <a class="nav-link sparkle u-hover&#45;&#45;sparkle" *ngIf="checkLogin === 'false' ? true : false"-->
+      <!--           routerLink="/customer/{{idCustomer}}">{{customerName}}</a>-->
+      <!--      </li>-->
     </ul>
+  </div>
+  <div class="dropdown" *ngIf="checkLogin === 'false' ? true : false">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+       aria-haspopup="true" aria-expanded="false">
+      <a class="nav-link sparkle u-hover--sparkle"
+      >{{customerName}}</a>
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" routerLink="/customer/{{idCustomer}}">Thông tin cá nhân</a>
+      <a class="dropdown-item" routerLink="/edit-customer/{{idCustomer}}">Thay đổi thông tin cá nhân</a>
+      <a class="dropdown-item" (click)=exit()>Đăng xuất</a>
+    </div>
   </div>
 </nav>
 <form [formGroup]="formGroupCheck" (ngSubmit)="updateCheck()">

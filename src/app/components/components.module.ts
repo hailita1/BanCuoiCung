@@ -31,13 +31,14 @@ import { ShowDetailCustomerComponent } from './homepage/show-detail-customer/sho
 import { CheckoutDealsComponent } from './homepage/checkout-deals/checkout-deals.component';
 import { HistoryHouseComponent } from './user/history-house/history-house.component';
 import { DeleteDealsComponent } from './homepage/delete-deals/delete-deals.component';
+import { EditCustomerComponent } from './homepage/edit-customer/edit-customer.component';
 
 
 
 @NgModule({
   declarations: [
     // tslint:disable-next-line:max-line-length
-    ComponentsComponent, BodyNewsComponent, HomepageComponent, FooterComponent, HotNewsComponent, MenuBarComponent, SideBarComponent, UserComponent, HouseListComponent, AddHouseComponent, EditHouseComponent, ShowDetailsComponent, SideBarUserComponent, HomeListComponent, ShowDetailHouseComponent, LoginComponent, SignUpComponent, ShowDetailUserComponent, EditUserComponent, LoginHomepageComponent, SignupHomepageComponent, DealsComponent, ShowDetailCustomerComponent, CheckoutDealsComponent, HistoryHouseComponent, DeleteDealsComponent],
+    ComponentsComponent, BodyNewsComponent, HomepageComponent, FooterComponent, HotNewsComponent, MenuBarComponent, SideBarComponent, UserComponent, HouseListComponent, AddHouseComponent, EditHouseComponent, ShowDetailsComponent, SideBarUserComponent, HomeListComponent, ShowDetailHouseComponent, LoginComponent, SignUpComponent, ShowDetailUserComponent, EditUserComponent, LoginHomepageComponent, SignupHomepageComponent, DealsComponent, ShowDetailCustomerComponent, CheckoutDealsComponent, HistoryHouseComponent, DeleteDealsComponent, EditCustomerComponent],
   imports: [
     CommonModule,
     ComponentsRoutingModule,

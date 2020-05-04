@@ -1,0 +1,46 @@
+<form [formGroup]="formGroup" (ngSubmit)="edit()">
+  <div *ngIf="isShow"
+       class="alert {{ (isSuccess) ? 'alert-success' : 'alert-danger' }}"
+       role="alert">
+    {{message}}
+  </div>
+  <div>
+    <label>Họ *</label>
+    <div class="form-group">
+      <input placeholder="Họ *" formControlName="ho" type="text" class="form-control">
+    </div>
+  </div>
+  <div>
+    <label>Tên *</label>
+    <div class="form-group">
+      <input placeholder="Tên *" formControlName="ten" type="text" class="form-control">
+    </div>
+  </div>
+  <div>
+    <label>Địa chỉ *</label>
+    <div class="form-group">
+      <input placeholder="Địa chỉ *" formControlName="diaChi" type="text" class="form-control">
+    </div>
+  </div>
+  <div>
+    <label>Chứng minh thư *</label>
+    <div class="form-group">
+      <input placeholder="Chứng minh thư *" formControlName="cmnd" type="text" class="form-control">
+    </div>
+  </div>
+  <div>
+    <label>Số điện thoại *</label>
+    <div class="form-group">
+      <input placeholder="Số điện thoại *" formControlName="sdt" type="text" class="form-control">
+    </div>
+  </div>
+  <div>
+    <label>Mật khẩu *</label>
+    <div class="form-group">
+      <input formControlName="password" type="text" class="form-control">
+    </div>
+  </div>
+  <div>
+    <button type="submit">Sửa</button>
+  </div>
+</form>
