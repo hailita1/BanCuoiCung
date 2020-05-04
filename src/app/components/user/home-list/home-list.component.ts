@@ -12,11 +12,11 @@ export class HomeListComponent implements OnInit {
   id: string;
   listUser: any[];
   // tslint:disable-next-line:max-line-length
-  urlTiDa = 'https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/64359869_2394503243947594_7770096928003457024_n.jpg?_nc_cat=102&_nc_sid=7aed08&_nc_ohc=uP1KHQU7Y6gAX-hCUDS&_nc_ht=scontent-sin6-2.xx&oh=d3e0cce99e40e4641f9f0b7c8e69c0a4&oe=5EA1801D';
+  urlTiDa = 'https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/15095628_1240803649317565_4406260693776945144_n.jpg?_nc_cat=102&_nc_sid=13bebb&_nc_ohc=8j-8xCcVjksAX_UwhP5&_nc_ht=scontent.fhan3-1.fna&oh=306bb91d609d5a4287471039fc6b46cd&oe=5ED44C3B';
   // tslint:disable-next-line:max-line-length
   urlHaiLit = 'https://scontent-sin6-1.xx.fbcdn.net/v/t1.15752-9/91350837_211883533382731_506886620025192448_n.jpg?_nc_cat=104&_nc_sid=b96e70&_nc_ohc=obZFoZXgT9UAX8Z1mDx&_nc_ht=scontent-sin6-1.xx&oh=c65a4f956a3f7853e9d8739241b333bd&oe=5EA4D9CC';
   // tslint:disable-next-line:max-line-length
-  urlHuyVy = 'https://scontent-sin6-1.xx.fbcdn.net/v/t1.15752-9/91566099_1060501520986446_4619718771207045120_n.jpg?_nc_cat=101&_nc_sid=b96e70&_nc_ohc=qItkg58sAvMAX8KLLSv&_nc_ht=scontent-sin6-1.xx&oh=25ac1a06f0122bbabb32c4a8eb6f0d35&oe=5EA1B31B';
+  urlHuyVy = 'https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-9/s960x960/94259973_1465767533597850_1414423959973134336_o.jpg?_nc_cat=106&_nc_sid=85a577&_nc_ohc=Zx-5N1tFKS4AX_N9Uz1&_nc_ht=scontent.fhan3-3.fna&_nc_tp=7&oh=ab56b15ca455f11bc8d6cd4b35042753&oe=5ED3EE80';
   constructor(private componentsService: ComponentsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {

@@ -5,7 +5,7 @@
       <div class="row">
 
         <div class="col-md-3 register-left">
-          <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+          <img src="https://www.theskyhouse.com/wp-content/uploads/2016/03/skyhouselogo-4.png" style="height: 100px; width: 200px" alt=""/>
           <h3>Welcome</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, libero.</p>
           <a routerLink="/user/house/{{house.host.idChuNha}}">Quay về</a><br/>
@@ -86,14 +86,14 @@
 
                     <div formGroupName="categoryHouse" class="form-group col-6 float-left"
                          style="padding: 0px!important;">
-                      <label>House Categories</label>
+                      <label>Loại nhà</label>
                       <select formControlName="id">
                         <option *ngFor="let s of categoryHouseList" value="{{s.id}}">{{s.name}}</option>
                       </select>
                     </div>
 
                     <div formGroupName="categoryRoom" class="form-group col-6 float-left" style="padding-right: 0px">
-                      <label>Room Categories</label>
+                      <label>Loại phòng</label>
                       <select formControlName="id">
                         <option *ngFor="let s of categoryRoomList" value="{{s.id}}">{{s.name}}</option>
                       </select>
@@ -113,7 +113,7 @@
                     </div>
                   </div>
                   <button type="submit" (click)="edit()" class="btnRegister">
-                    Edit
+                    Sửa
                   </button>
                 </div>
 

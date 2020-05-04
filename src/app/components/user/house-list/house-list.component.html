@@ -8,7 +8,7 @@
           <div class="col-md-12">
             <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab ">
-                <h2>House Management</h2>
+                <h2>Danh sách ngôi nhà cho thuê</h2>
                 <div *ngIf="isShow"
                      class="alert {{ (isSuccess) ? 'alert-success' : 'alert-danger' }}"
                      role="alert">
@@ -17,10 +17,10 @@
                 <table class="table" cellspacing="0">
                   <thead>
                   <tr>
-                    <th>House Name</th>
-                    <th>Status</th>
-                    <th>Description</th>
-                    <th>Action</th>
+                    <th>Tên nhà</th>
+                    <th>Trạng thái</th>
+                    <th>Mô tả</th>
+                    <th>Chức năng</th>
                   </tr>
                   </thead>
                   <tbody *ngFor="let house of houseList; index as i; trackBy: trackByFn">
@@ -38,16 +38,16 @@
 
                     <td>
                       <button class="btn btn-success btn-xs" routerLink='/user/house-details/{{house.idNha}}'
-                              (click)="findId(house.id)"><i class="fa fa-eye"></i> Show details
+                              (click)="findId(house.id)"><i class="fa fa-eye"></i> Chi tiết
                       </button>
                       <button class=" btn btn-info btn-xs" routerLink='/user/edit/{{house.idNha}}'
-                              (click)="findId(house.id)"><i class="fa fa-edit"></i>Edit
+                              (click)="findId(house.id)"><i class="fa fa-edit"></i>Sửa
                       </button>
                       <button class="btn btn-danger btn-xs" (click)="delete(house.idNha)"><i class="fa fa-times"></i>
-                        Delete
+                        Xóa
                       </button>
                       <button class="btn btn-danger btn-xs" routerLink='/history/{{house.idNha}}'><i
-                        class="fa fa-times"></i> Lịch sử thuê nhà
+                        class="fa fa-times"></i> Lịch sử
                       </button>
                     </td>
 
