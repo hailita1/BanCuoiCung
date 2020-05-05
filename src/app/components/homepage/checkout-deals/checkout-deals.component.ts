@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ComponentsService} from '../../components.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -58,11 +58,14 @@ export class CheckoutDealsComponent implements OnInit {
     thanhTien: new FormControl(),
     phanHoi: new FormControl()
   });
-  constructor(private componentsService: ComponentsService, private route: ActivatedRoute, private router: Router) { }
+
+  constructor(private componentsService: ComponentsService, private route: ActivatedRoute, private router: Router) {
+  }
+
   ngOnInit(): void {
-    this.route.paramMap.subscribe( params => {
+    this.route.paramMap.subscribe(params => {
       const idSearch = params.get('id');
-      this.componentsService.findByIdDeals(idSearch).subscribe( result => {
+      this.componentsService.findByIdDeals(idSearch).subscribe(result => {
         this.dealsList = result;
         this.formGroup.controls.ngayDen.setValue(this.dealsList.ngayDen);
         this.formGroup.controls.ngayDi.setValue(this.dealsList.ngayDi);
@@ -75,6 +78,7 @@ export class CheckoutDealsComponent implements OnInit {
       });
     });
   }
+
   saveDeal() {
     this.deals.idGiaoDich = this.dealsList.idGiaoDich;
     this.deals.ngayDen = this.dealsList.ngayDen;
@@ -87,8 +91,8 @@ export class CheckoutDealsComponent implements OnInit {
     this.deals.customer.idCustomer = this.dealsList.customer.idCustomer;
     this.componentsService.updateDeals(this.deals).subscribe();
     this.updateHouse();
-    alert("Trả phòng thành công");
-    this.router.navigate(['/customer/', this.dealsList.customer.idCustomer]).then( (e) => {
+    alert('Trả phòng thành công');
+    this.router.navigate(['/customer/', this.dealsList.customer.idCustomer]).then((e) => {
       if (e) {
         console.log('Navigation is successful!');
       } else {
@@ -96,6 +100,7 @@ export class CheckoutDealsComponent implements OnInit {
       }
     });
   }
+
   updateHouse() {
     const id = this.dealsList.house.idNha;
     const trangThai = 'Trống';
