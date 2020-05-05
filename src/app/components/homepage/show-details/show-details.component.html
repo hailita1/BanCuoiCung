@@ -18,9 +18,11 @@
                 <span>* Mô tả chung: </span>
                 {{listHouse.moTaChung}}
               </div>
+              <br>
               <div>
                 <span>* Trạng thái:{{listHouse.trangThai}} </span>
               </div>
+              <br>
               <form [formGroup]="formGroup">
                 <div class="form-group">
                   <label><span class="req">* </span> Loại nhà:  {{listHouse.categoryHouse.name}}</label>
@@ -62,7 +64,8 @@
                       <article class="row ">
                         <div class="col-md-2 col-sm-2 hidden-xs">
                           <figure class="thumbnail">
-                            <img class="img-responsive" src="http://www.tangoflooring.ca/wp-content/uploads/2015/07/user-avatar-placeholder.png" />
+                            <img class="img-responsive"
+                                 src="http://www.tangoflooring.ca/wp-content/uploads/2015/07/user-avatar-placeholder.png"/>
                             <figcaption class="text-center">{{d.customer.userName}}</figcaption>
                           </figure>
                         </div>
@@ -84,7 +87,6 @@
                           </div>
                         </div>
                       </article>
-
 
 
                     </section>

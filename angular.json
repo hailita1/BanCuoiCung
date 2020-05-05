@@ -126,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "M4-FE"
+    }
+  },
+  "defaultProject": "M4-FE",
+  "cli": {
+    "analytics": "54f100d7-ba72-4766-a248-078e43a6e963"
+  }
 }

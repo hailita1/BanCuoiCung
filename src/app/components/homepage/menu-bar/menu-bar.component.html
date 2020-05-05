@@ -41,12 +41,14 @@
         <a class=" dropdown-toggle d-flex justify-content-center align-items-center" href="#" role="button"
            id="dropdownMenuLink" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
-          <a>{{customerName}}</a>
+          <a>Xin chào, {{customerName}}</a>
         </a>
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-          <a class=" dropdown-item " routerLink="/customer/{{idCustomer}}"><i class="fa fa-eye"></i>  Thông tin cá nhân</a>
-          <a  class=" dropdown-item " routerLink="/edit-customer/{{idCustomer}}"><i class="fas fa-edit"></i>  Thay đổi thông tin cá nhân</a>
+          <a class=" dropdown-item " routerLink="/customer/{{idCustomer}}"><i class="fa fa-eye"></i> Thông tin cá
+            nhân</a>
+          <a class=" dropdown-item " routerLink="/edit-customer/{{idCustomer}}"><i class="fas fa-edit"></i> Thay đổi
+            thông tin cá nhân</a>
           <a class="dropdown-item  " (click)=exit()><i class="fas fa-sign-out-alt"></i> Đăng xuất </a>
         </div>
       </li>
