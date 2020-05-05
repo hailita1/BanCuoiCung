@@ -93,10 +93,12 @@
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
-  padding: 1em;
+  padding: 1rem;
   background: #2c3e50;
   font-weight: bold;
   cursor: pointer;
+  width: 50%;
+  margin: auto auto 10px;
   /* Icon */
 }
 .tab-label:hover {
@@ -117,6 +119,8 @@
   background: white;
   -webkit-transition: all .35s;
   transition: all .35s;
+  width: 50%;
+  margin: auto;
 }
 .tab-close {
   display: -webkit-box;

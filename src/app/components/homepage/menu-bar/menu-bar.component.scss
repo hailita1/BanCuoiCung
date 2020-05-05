@@ -260,3 +260,20 @@ a {
   transform: scale3d(1, 1, 1);
   transition: transform 900ms;
 }
+a#dropdownMenuLink {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 16px;
+}
+
+.dropdown-menu.dropdown-menu-right.show {
+  width: 250px;
+  top: 150%;
+}
+
+.dropdown-menu a {
+  font-size: 16px;
+}
+.dropdown-menu a:hover{
+  text-decoration: none;
+}
